@@ -26,9 +26,13 @@ angular
 			templateUrl: 'views/main.html',
 			controller: 'MainCtrl'
 		})
-		.when('/about', {
-			templateUrl: 'views/about.html',
-			controller: 'AboutCtrl'
+		.when('/launch', {
+			templateUrl: 'views/launch.html',
+			controller: 'MainCtrl'
+		})
+		.when('/join', {
+			templateUrl: 'views/join.html',
+			controller: 'MainCtrl'
 		})
 		.when('/404', {
 			templateUrl: '404.html',

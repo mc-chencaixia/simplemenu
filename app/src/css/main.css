@@ -10,7 +10,7 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+
 .marketing,
 .footer {
   padding-left: 15px;
@@ -80,4 +80,8 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.navbar-nav1{
+   width: 100%;
 }

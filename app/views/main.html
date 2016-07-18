@@ -1,24 +1,28 @@
 <div class="header" ng-controller='NavCtrl' ng-init="init()" ng-include="'views/header.html'"></div>
-<div class="container">
-	<h2>事件清单</h2>
-	<!-- Todos input -->
-	<form role="form" ng-submit="addTodo()">
-		<div class="row">
-		  	<div class="input-group">
-		    	<input type="text" ng-model="todo" placeholder="要做的事情?" class="form-control">
-		    	<span class="input-group-btn">
-		      		<input type="submit" class="btn btn-primary" value="添加">
-		    	</span>
-		  </div>
+<div class="container-fluid" ng-init="init()">
+	<h5 class="page_header" ng-if="!launchMan || launchMan==''">今天还没有人点餐，可以到<a class="btn btn-xs btn-primary" href="#/launch">发起点餐</a>添加餐厅和菜品，邀请小伙伴来订餐咯。</h5>	
+	<h5 class="page_header" ng-if="launchMan && launchMan!=''">今天 {{launchMan}} 发起了 {{dinnerRoom}} 餐厅的点餐，可以到<a class="btn btn-xs btn-primary" href="#/join">我要点餐</a>选择喜欢的菜品噢。</h5>
+    <!-- Menus list -->
+	<section class="section" ng-if="orderList.length>0">
+	    <h5 class="page_header">已点餐清单</h5>
+		<div class="table-responsive">
+		    <table class="table table-bordered table-striped responsive-utilities">
+				<thead>
+					<tr>
+					  	<th>菜品名称</th>
+					  	<th>单价(元)</th>
+					  	<th>已点人数</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="order in orderList">
+						<td>{{order.dinner}}</td>
+						<td>{{order.price}}</td>
+						<td>{{order.sum}}</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</form>
-	<h2 class="page_header"></h2>
-    <!-- Todos list -->
-	<p class="input-group" ng-repeat="todo in todos">
-		<input type="text" ng-model="todo" class="form-control">
-		<span class="input-group-btn">
-	    	<button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
-	  	</span>
-	</p>
+	</section>
 </div>
 <div class="footer" ng-include="'views/footer.html'"></div>
