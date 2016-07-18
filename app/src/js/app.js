@@ -32,7 +32,7 @@ angular
 		})
 		.when('/join', {
 			templateUrl: 'views/join.html',
-			controller: 'MainCtrl'
+			controller: 'JoinCtrl'
 		})
 		.when('/404', {
 			templateUrl: '404.html',
