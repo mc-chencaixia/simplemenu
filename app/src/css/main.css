@@ -33,6 +33,7 @@ body {
 .nav>li>a {
   padding-left: 0;
   padding-right: 0;
+  text-align: center;
 }
 /* Custom page footer */
 .footer {
