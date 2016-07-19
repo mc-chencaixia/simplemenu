@@ -28,7 +28,7 @@ angular
 		})
 		.when('/launch', {
 			templateUrl: 'views/launch.html',
-			controller: 'MainCtrl'
+			controller: 'LaunchCtrl'
 		})
 		.when('/join', {
 			templateUrl: 'views/join.html',

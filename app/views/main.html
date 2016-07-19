@@ -1,28 +1,36 @@
 <div class="header" ng-controller='NavCtrl' ng-init="init()" ng-include="'views/header.html'"></div>
-<div class="container-fluid" ng-init="init()">
-	<h5 class="page_header" ng-if="!launchMan || launchMan==''">今天还没有人点餐，可以到<a class="btn btn-xs btn-primary" href="#/launch">发起点餐</a>添加餐厅和菜品，邀请小伙伴来订餐咯。</h5>	
-	<h5 class="page_header" ng-if="launchMan && launchMan!=''">今天 {{launchMan}} 发起了 {{dinnerRoom}} 餐厅的点餐，可以到<a class="btn btn-xs btn-primary" href="#/join">我要点餐</a>选择喜欢的菜品噢。</h5>
-    <!-- Menus list -->
-	<section class="section" ng-if="orderList.length>0">
-	    <h5 class="page_header">已点餐清单</h5>
-		<div class="table-responsive">
-		    <table class="table table-bordered table-striped responsive-utilities">
-				<thead>
-					<tr>
-					  	<th>菜品名称</th>
-					  	<th>单价(元)</th>
-					  	<th>已点人数</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="order in orderList">
-						<td>{{order.dinner}}</td>
-						<td>{{order.price}}</td>
-						<td>{{order.sum}}</td>
-					</tr>
-				</tbody>
-			</table>
+<div class="container" ng-init="init()">
+	<h5 class="page_header" ng-if="!launchMan || launchMan==''">今天还没有人点餐，可以到 <a class="btn btn-xs btn-primary" href="#/launch"> 发起点餐 </a> 添加餐厅和菜品，邀请小伙伴来订餐咯。</h5>
+	<div class="row" ng-if="!launchMan || launchMan==''">			
+		<div class="jumbotron">
+			<p>饭，不能停~</p>
+			<p>广告位常年招租</p>
 		</div>
-	</section>
+	</div>
+	<div ng-if="launchMan && launchMan!=''">
+		<h5 class="page_header" >今天 <span> {{launchMan}}  </span> 发起了 <span> {{dinnerRoom}}  </span> 餐厅的点餐，可以到<a class="btn btn-xs btn-primary" href="#/join">我要点餐</a>选择喜欢的菜品噢。</h5>
+	    <!-- Menus list -->
+		<section class="section" ng-if="orderList.length>0">
+		    <h5 class="page_header">已点餐清单</h5>
+			<div class="table-responsive">
+			    <table class="table table-bordered table-striped responsive-utilities">
+					<thead>
+						<tr>
+						  	<th>菜品名称</th>
+						  	<th>单价(元)</th>
+						  	<th>已点人数</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="order in orderList">
+							<td>{{order.dinner}}</td>
+							<td>{{order.price}}</td>
+							<td>{{order.sum}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+	</div>
 </div>
 <div class="footer" ng-include="'views/footer.html'"></div>
